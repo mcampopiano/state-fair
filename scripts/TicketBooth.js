@@ -4,8 +4,8 @@ const eventHub = document.querySelector("#state-fair")
 eventHub.addEventListener("click", e => {
     if (e.target.id === "rideTicket") {
         const rideEvent = new CustomEvent("rideTicketPurchased")
+        eventHub.dispatchEvent(rideEvent)
     }
-    dispatchEvent("rideTicketPurchased")
 })
 
 export const TicketBooth = () => {

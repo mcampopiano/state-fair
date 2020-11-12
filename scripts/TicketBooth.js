@@ -1,6 +1,15 @@
 const contentTarget = document.querySelector(".entry")
+const ticketTarget = document.querySelector(".customers")
 const eventHub = document.querySelector("#state-fair")
-
+let ticketsPurchased = 0
+ticketTarget.innerHTML = `Tickets purchased: ${ticketsPurchased}`
+eventHub.addEventListener("click", event => {
+    if (event.target.id.includes("Ticket")) {
+        console.log("ticket purchased")
+        ticketsPurchased++
+        ticketTarget.innerHTML = `Tickets purchased: ${ticketsPurchased}`
+    }
+})
 eventHub.addEventListener("click", e => {
     if (e.target.id === "rideTicket") {
         const rideEvent = new CustomEvent("rideTicketPurchased")
